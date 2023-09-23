@@ -1,0 +1,25 @@
+{
+    "name": "lucastropardi/alunos",
+    "description": "Sistema de gestão de alunos",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Lucastropardi\\Alunos\\": "src/",
+            "app\\":"app/",
+            "core\\":"core/"
+        },
+        "files": [
+            "config/config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Lucas Tropardi",
+            "email": "lucastropardi@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php":">=7.2"
+    }
+}
