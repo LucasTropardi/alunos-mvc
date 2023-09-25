@@ -7,10 +7,11 @@
     <form action="?router=Site/cadastro_sala" method="post">
 
         <div class="input-field col s12 m6">
+            <label>Escola</label><br>
             <?php foreach($nomesEscolas as $escola): ?>
                 <p>
                     <label>
-                        <input type="checkbox" name="id_escola[]" value="<?php echo $escola['id_escola']; ?>" onchange="toggleCheckboxes(this);" />
+                        <input type="radio" name="id_escola" value="<?php echo $escola['id_escola']; ?>" onchange="toggleCheckboxes(this);" />
                         <span><?php echo $escola['nome_escola']; ?></span>
                     </label>
                 </p>
@@ -24,7 +25,7 @@
 
         <div class="input-field col s12 m6">
             <input type="text" name="serie" id="serie" required>
-            <label for="serie">Ano letivo</label>
+            <label for="serie">Ano</label>
         </div>
 
         <div class="input-field col s12 m6">

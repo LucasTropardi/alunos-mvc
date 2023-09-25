@@ -8,14 +8,14 @@
     <div class="col s12">
         <table>
             <tr>
-                <th>Nome</th><th>Cidade</th><th>Endereço</th><th>Ações</th>
+                <th>Nome</th><th>Cidade</th><th>Endereço</th><th class="center">Ações</th>
             </tr>
             <?php foreach($consulta_escola as $registro): ?>
                 <tr>
                     <td><?php echo $registro['nome_escola'] ?></td>
                     <td><?php echo $registro['cidade_escola'] ?></td>
                     <td><?php echo $registro['endereco_escola'] ?></td>
-                    <td>
+                    <td class="center">
                         <a href="?router=Site/edita_escola/&id=<?php echo base64_encode($registro['id_escola'])?> " class="btn-small blue">Editar</a>
                         <a href="?router=Site/confirmaDeleteEscola/&id=<?php echo base64_encode($registro['id_escola'])?>" class="btn-small red">Excluir</a>
                     </td>

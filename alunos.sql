@@ -1,0 +1,46 @@
+CREATE TABLE if NOT EXISTS escolas(
+id_escola INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+nome_escola VARCHAR(150) NOT NULL,
+cidade_escola VARCHAR(100) NOT NULL,
+endereco_escola VARCHAR(250) NOT NULL
+) ENGINE INNODB;
+
+CREATE TABLE if NOT EXISTS salas(
+id_sala INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+id_escola INT NOT NULL,
+nome_sala VARCHAR(150) NOT NULL,
+serie INT NOT NULL,
+turma CHAR(1) NOT NULL
+) ENGINE INNODB;
+
+CREATE TABLE if NOT EXISTS alunos(
+id_aluno INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+id_sala INT NOT NULL,
+nome_aluno VARCHAR(250) NOT NULL,
+numero_aluno INT NOT NULL,
+endereco_aluno VARCHAR(250) NOT NULL,
+cidade_aluno VARCHAR(250) NOT NULL,
+responsavel_aluno VARCHAR(250) NOT NULL
+) ENGINE INNODB;
+
+CREATE TABLE if NOT EXISTS ocorrencias(
+id_oco INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+id_aluno INT NOT NULL,
+titulo VARCHAR(100) NOT NULL,
+conteudo VARCHAR(800)
+) ENGINE INNODB;
+
+ALTER TABLE salas 
+ADD CONSTRAINT fk_escola_sala
+FOREIGN KEY (id_escola)
+REFERENCES escolas (id_escola);
+
+ALTER TABLE alunos
+ADD CONSTRAINT fk_sala_aluno
+FOREIGN KEY (id_sala)
+REFERENCES salas (id_sala);
+
+ALTER TABLE ocorrencias
+ADD CONSTRAINT fk_aluno_oco
+FOREIGN KEY (id_aluno)
+REFERENCES alunos (id_aluno);
